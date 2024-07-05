@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import { useSearchStore } from '../../../app/stores/searchStore';
+// import { useSearchStore } from '@/app/stores/searchStore';
 import { computed, ref } from 'vue';
 
 const checked = ref<boolean>(false);

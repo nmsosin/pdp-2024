@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import instance from '../../shared/api/agent';
+import instance from '@/shared/api/agent';
 import { useJokeStore } from './jokeStore';
 
 export const useSearchStore = defineStore('searchStore', () => {
@@ -15,6 +15,8 @@ export const useSearchStore = defineStore('searchStore', () => {
       isFavorite: false,
 
     }];
+
+    console.log('jokes // 1 random', jokes.value);
 
     loader.value = false;
   };
@@ -31,9 +33,12 @@ export const useSearchStore = defineStore('searchStore', () => {
     loader.value = true;
     const res = await instance.get<string, any>(`/jokes/${type}/random`);
     jokes.value = [{
-      ...res.data,
+      ...res.data[0],
       isFavorite: false,
     }];
+
+    console.log('jokes // 1 by type', jokes.value);
+    
 
     loader.value = false;
   };

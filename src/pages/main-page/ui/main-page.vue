@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { useSearchStore } from '../../../app/stores/searchStore';
+import { useSearchStore } from '@/app/stores/searchStore';
 
-import Joke from '../../../entities/joke/ui';
+import Joke from '@/entities/joke/ui';
 
 const searchStore = useSearchStore();
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import MainPage from '../pages/main-page/ui';
+  import MainPage from '@/pages/main-page/ui';
 </script>
 
 <template>
@@ -29,4 +29,3 @@
   justify-content: center;
 }
 </style>
-../pages/main-page/ui

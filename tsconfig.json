@@ -1,9 +1,15 @@
 {
+  "baseUrl": "./",
   "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
     },
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src", "./declarations"],
+  "references": [
     {
       "path": "./tsconfig.node.json"
     }
