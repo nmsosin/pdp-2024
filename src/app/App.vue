@@ -8,7 +8,7 @@
       <a-image
         :width="100"
         :preview="false"
-        src="../../public/Logo.png"
+        src="src/shared/assets/Logo.png"
       />
       <div>
         <a-typography-title>Get a random joke</a-typography-title>
