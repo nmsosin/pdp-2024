@@ -2,8 +2,10 @@
 import { ref } from 'vue';
 
 import { useSearchStore } from '@/app/stores/searchStore';
+import { useFavoriteStore } from '@/app/stores/favoriteStore';
 
 const searchStore = useSearchStore();
+const favoriteStore = useFavoriteStore();
 
 const searchId = ref<number>();
 const searchType = ref<string>();
@@ -36,6 +38,10 @@ const handleClickSearchById = () => {
     searchId.value = undefined;
   };
 };
+
+const handleClickFavorites = () => {
+  favoriteStore.toggleFavorites();
+}
 </script>
 
 <template>
@@ -101,8 +107,11 @@ const handleClickSearchById = () => {
       >
         Grab by id
       </a-button>
-      <a-button type="primary">
-        Show favorites
+      <a-button
+        :type="favoriteStore.isFavoritesOpen ? 'dashed' : 'primary'"
+        @click="handleClickFavorites"
+      >
+        {{favoriteStore.isFavoritesOpen ? 'Hide' : 'Show'}} favorites
       </a-button>
     </a-flex>
   </a-flex>

@@ -1,25 +1,51 @@
 <script setup lang="ts">
-// import { useSearchStore } from '@/app/stores/searchStore';
-import { computed, ref } from 'vue';
+import { useFavoriteStore } from '@/app/stores/favoriteStore';
+import { ref, watchEffect } from 'vue';
+import categoryColors from '../config';
+import type { Joke } from '@/entities/joke/model';
 
-const checked = ref<boolean>(false);
+const isFavorite = ref<boolean>(false);
+  const activeKey = ref([]);
 
-defineProps<{
-  id?: number;
-  setup: string;
-  punchline: string;
-  type: string;
-  isFavorite?: boolean;
-}>()
+const props = defineProps({
+  id: Number,
+  setup: String,
+  punchline: String,
+  type: String,
+  isFavorite: Boolean,
+})
 
-// const searchStore = useSearchStore();
+const favoriteStore = useFavoriteStore();
 
-const categoryColors = {
-  'programming': 'blue',
-  'general': 'red',
-  'knock-knock': 'orange',
-  'dad': 'green',
-};
+watchEffect(() => {
+  if(favoriteStore.jokes.find(joke => joke.id === props.id)) {
+    isFavorite.value = true;
+  } else {
+    isFavorite.value = false;
+  }
+})
+
+const handleAddToFavorites = (joke: Joke) => {
+  favoriteStore.addToFavorites(joke);
+}
+
+const handleDeleteFromFavorites = (id: number) => {
+  favoriteStore.deleteFromFavorites(id);
+}
+
+const toggleFavoriteStatus = (status: boolean) => {
+  if (status) {
+    handleAddToFavorites({
+      id: props.id,
+      setup: props.setup,
+      punchline: props.punchline,
+      type: props.type,
+      isFavorite: props.isFavorite,
+    })
+  } else {  
+    handleDeleteFromFavorites(props.id);
+  }
+}
 
 const tagColorByType = (type: string) => categoryColors[type as keyof Object];
 
@@ -46,7 +72,7 @@ const tagColorByType = (type: string) => categoryColors[type as keyof Object];
           </a-flex>
           <a-flex vertical justify="flex-end" align="center">
             <a-typography-text disabled>Add to favorites</a-typography-text>
-            <a-switch v-model:checked="checked" />
+            <a-switch v-model:checked="isFavorite" @change="toggleFavoriteStatus($event)"/>
           </a-flex>
         </a-flex>
       </a-collapse-panel>

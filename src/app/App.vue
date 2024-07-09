@@ -19,13 +19,30 @@
     <a-divider />
     
     <main-page />
+    <img
+      class="meme"
+      src="@/shared/assets/meme.png"
+      alt="meme"
+    />
   </div>
 </template>
 
 <style scoped>
 .App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+}
+
+.meme {
+  width: 300px;
+  position: absolute;
+  right: 200px;
+  bottom: 0;
+  z-index: -1;
 }
 </style>
