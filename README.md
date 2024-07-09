@@ -1,5 +1,27 @@
-# Vue 3 + TypeScript + Vite
+# Random joke
+## Pet-project в рамках Индивидуального плана развития 2024
+#### Лига Цифровой Экономики
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### Цели проекта
+1) Изучить синтаксис и особенности Vue3
+2) Структурировать проект по концепции [FSD](https://feature-sliced.design/ru/)
+3) Познакомиться со стейт-менеджментом Pinia
+4) Использовать antd
+5) Тестирование с помощью Jest
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+### Также использованы в проекте
+__Сборка__: Vite
+
+__API__: axios // Открытое [official_joke_api](https://github.com/15Dkatz/official_joke_api)
+
+__Типизация__: TypeScript
+
+### Описание проекта:
+Проект представляет из себя одностраничный сайт, позволяющий найти 1 (10) случайных шуток, а так же задать конкретную тематику из предложенных ```API```, либо найти шутку по ```ID```.
+
+Так же с помощью стейт-менеджера Pinia реализован функционал отображения/скрытия списка избранных шуток.
+Добавление / удаление шутки в список избранного реализовано через ```switch```-компонент (```antd```) и метода ```watchEffect``` (```Vue3```).
+
+```Vite``` выбран в качестве сборщика как простой и быстрый способ инициализировать и запустить рабочее приложение. Так же настроены алиасы для удобной работы с импортами.
+
+С помощью фреймворка ```Jest``` для приложения написаны Unit-тесты, покрывающие основной функционал.

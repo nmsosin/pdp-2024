@@ -16,7 +16,12 @@ import SearchBar from '@/widgets/search-bar/ui';
   <search-bar />
   <favorites v-if="favoriteStore.isFavoritesOpen"/>
   <a-flex gap="middle" vertical>
-    <a-typography-title :level="2">Jokes</a-typography-title>
+    <a-typography-title
+      v-if="searchStore.jokes.length > 0"
+      :level="2"
+    >
+      Jokes
+    </a-typography-title>
     <joke
       v-for="joke in searchStore.jokes"
       :setup="joke.setup"
