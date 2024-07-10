@@ -6,7 +6,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client", "@types/jest"]
   },
   "include": ["src", "src/**/*.vue", "./declarations"],
   "references": [
