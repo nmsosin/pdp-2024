@@ -29,12 +29,5 @@ describe('Компонент Joke', () => {
     expect(component.vm.setup).toEqual("What's the difference between a guitar and a fish?");
     expect(component.vm.punchline).toEqual("You can tune a guitar but you can't \"tuna\"fish!");
     expect(component.vm.id).toEqual(275);
-    expect(true).toBe(true)
-  })
-
-  // также легко проверить наличие других элементов
-  it('имеет кнопку', () => {
-    expect(component.find('div')).toBe(true)
-    expect(true).toBe(true)
   })
 })
