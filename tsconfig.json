@@ -8,7 +8,7 @@
     },
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "./declarations"],
+  "include": ["src", "src/**/*.vue", "./declarations"],
   "references": [
     {
       "path": "./tsconfig.node.json"
