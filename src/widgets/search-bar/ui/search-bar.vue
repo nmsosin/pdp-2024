@@ -46,7 +46,7 @@ const handleClickFavorites = () => {
 
 <template>
   <a-flex gap="middle" justify="center">
-    <a-flex gap="middle" align="center">
+    <a-flex gap="middle" align="center" id="typeInput">
       Find by type:
       <a-select
         addonBefore="Choose a type"
@@ -63,7 +63,7 @@ const handleClickFavorites = () => {
       </a-select>
     </a-flex>
 
-    <a-flex gap="middle" align="center">
+    <a-flex gap="middle" align="center" id="idInput">
       Find by ID:
       <a-input-number id="inputNumber" v-model:value="searchId" :min="1" />
     </a-flex>
